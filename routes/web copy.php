@@ -18,7 +18,9 @@ use App\Http\Controllers\CommentController;
 | 
 */
 
-Route::get('/', [TopicController::class, 'showAllTopics'])->name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // AuthController
 Route::match(['get', 'post'], '/login', [AuthController::class, 'loginUser'])->name('login');
@@ -108,3 +110,5 @@ Route::post('/comments/{id}/like', [CommentController::class, 'like'])->name('co
 Route::post('/comments/{id}/dislike', [CommentController::class, 'dislike'])->name('comments.dislike');
 
 //rota welcome
+
+Route::get('/', [TopicController::class, 'showAllTopics'])->name('home');

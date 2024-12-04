@@ -19,11 +19,10 @@
                 <p>Status: {{ $topic->status ? 'Ativo' : 'Inativo' }}</p>
                 
                 <!-- Exibindo Categorias -->
-                <p>Categorias: 
-                    @if($topic->categories && $topic->categories->isNotEmpty())
-                        @foreach ($topic->categories as $category)
-                            <span class="badge badge-secondary">{{ $category->title }}</span>
-                        @endforeach
+                
+                <p>Categoria: 
+                    @if($topic->category)
+                        <span class="badge badge-secondary">{{ $topic->category->title }}</span>
                     @else
                         <span class="text-muted">Nenhuma categoria</span>
                     @endif

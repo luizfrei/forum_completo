@@ -14,7 +14,7 @@ class TopicController extends Controller
 {
     public function index()
     {
-        $topics = Topic::with('tags')->get(); // Carrega as tags associadas
+        $topics = Topic::with(['category', 'tags'])->get(); // Carrega a categoria associada
         return view('topics.list', compact('topics'));
     }
 
